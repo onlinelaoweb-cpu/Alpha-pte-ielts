@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ALPHA PTE IELTS Education | Noida Extension</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep: #0d2244;
+    --blue: #1a4480;
+    --accent: #f4a61e;
+    --gold: #e8961a;
+    --white: #ffffff;
+    --light: #f0f4fb;
+    --muted: #8fa3c0;
+    --text: #d2dff0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    animation: fadeDown 0.8s ease forwards;
+  }
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+
+  .logo {
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .logo-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900; font-size: 1.3rem; color: var(--navy);
+  }
+  .logo-text { font-size: 1.1rem; font-weight: 600; letter-spacing: 0.03em; }
+  .logo-text span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--text); text-decoration: none; font-size: 0.9rem;
+    font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent); color: var(--navy);
+    border: none; padding: 0.65rem 1.6rem;
+    font-family: 'DM Sans', sans-serif; font-weight: 700;
+    font-size: 0.9rem; border-radius: 50px; cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold); transform: translateY(-2px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 7rem 5% 4rem;
+    position: relative; overflow: hidden;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, #0d2e5e 0%, var(--navy) 65%);
+  }
+
+  .hero-grid-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(26,68,128,0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,68,128,0.12) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 80% at 60% 40%, black 30%, transparent 80%);
+  }
+
+  .hero-blob {
+    position: absolute; right: -120px; top: 50%; transform: translateY(-50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,166,30,0.13) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-content { max-width: 640px; position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(244,166,30,0.15); border: 1px solid rgba(244,166,30,0.3);
+    color: var(--accent); padding: 0.4rem 1rem; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-badge::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); display: block;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.3); } }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900; line-height: 1.08; letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+
+  .hero-sub {
+    font-size: 1.1rem; color: var(--text); line-height: 1.7; max-width: 520px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.65s ease both;
+  }
+  .btn-primary {
+    background: var(--accent); color: var(--navy);
+    padding: 0.9rem 2.2rem; border-radius: 50px; border: none;
+    font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1rem;
+    cursor: pointer; transition: all 0.25s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(244,166,30,0.4); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 0.9rem 2.2rem; border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 1rem;
+    cursor: pointer; transition: all 0.25s; text-decoration: none;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3.5rem; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.8s ease both;
+  }
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700; color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); font-weight: 500; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+
+  /* floating cards */
+  .hero-visual {
+    position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+    z-index: 2; display: flex; flex-direction: column; gap: 1.2rem;
+    animation: fadeUp 1s 0.9s ease both;
+  }
+  .float-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 1.1rem 1.4rem;
+    min-width: 220px;
+  }
+  .float-card-label { font-size: 0.72rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+  .float-card-value { font-size: 1.05rem; font-weight: 600; }
+  .float-card-value span { color: var(--accent); font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .score-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 0.7rem; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--gold)); width: 88%; }
+
+  /* ── COURSES ── */
+  .section { padding: 6rem 5%; }
+  .section-label {
+    display: inline-block; font-size: 0.75rem; font-weight: 700;
+    color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+    line-height: 1.15; margin-bottom: 1rem;
+  }
+  .section-desc { color: var(--text); max-width: 520px; font-size: 1rem; line-height: 1.7; }
+
+  #courses { background: linear-gradient(180deg, var(--navy) 0%, #091422 100%); }
+  .courses-header { text-align: center; margin-bottom: 4rem; }
+  .courses-header .section-desc { margin: 0 auto; }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .course-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 20px; padding: 2rem;
+    transition: all 0.35s; position: relative; overflow: hidden;
+    cursor: pointer;
+  }
+  .course-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(244,166,30,0.08), transparent);
+    opacity: 0; transition: opacity 0.35s;
+  }
+  .course-card:hover { border-color: rgba(244,166,30,0.35); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+  .course-card:hover::before { opacity: 1; }
+  .course-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 1.2rem;
+  }
+  .course-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .course-desc { color: var(--text); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.2rem; }
+  .course-tag {
+    display: inline-block; background: rgba(244,166,30,0.15); color: var(--accent);
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 0.3rem 0.8rem; border-radius: 50px;
+  }
+
+  /* ── WHY US ── */
+  #why { background: var(--navy); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .why-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .why-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .why-num {
+    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+    color: var(--accent); line-height: 1; min-width: 32px;
+  }
+  .why-item-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.3rem; }
+  .why-item-desc { color: var(--text); font-size: 0.9rem; line-height: 1.6; }
+
+  .why-visual {
+    background: linear-gradient(145deg, rgba(26,68,128,0.4), rgba(26,68,128,0.15));
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 24px;
+    padding: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem;
+  }
+  .band-row { display: flex; align-items: center; gap: 1rem; }
+  .band-label { font-size: 0.85rem; font-weight: 600; min-width: 80px; }
+  .band-track { flex: 1; height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; }
+  .band-bar { height: 100%; border-radius: 5px; background: linear-gradient(90deg, var(--blue), var(--accent)); animation: growBar 1.5s ease forwards; transform-origin: left; }
+  @keyframes growBar { from { width: 0; } }
+  .band-score { font-size: 0.85rem; font-weight: 700; color: var(--accent); min-width: 35px; text-align: right; }
+  .why-visual-label {
+    font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;
+    margin-bottom: 0.5rem; text-align: center; color: var(--accent);
+  }
+  .why-visual-sub { font-size: 0.8rem; color: var(--muted); text-align: center; margin-bottom: 1rem; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: linear-gradient(180deg, #091422 0%, var(--navy) 100%); }
+  .test-header { text-align: center; margin-bottom: 3.5rem; }
+  .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .test-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px; padding: 2rem; transition: all 0.3s;
+  }
+  .test-card:hover { border-color: rgba(244,166,30,0.25); transform: translateY(-4px); }
+  .stars { color: var(--accent); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+  .test-text { color: var(--text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+  .test-author { display: flex; align-items: center; gap: 0.8rem; }
+  .test-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem; color: var(--white);
+  }
+  .test-name { font-weight: 600; font-size: 0.9rem; }
+  .test-info { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── CTA STRIP ── */
+  #cta {
+    background: linear-gradient(135deg, var(--deep) 0%, #0a2050 100%);
+    padding: 5rem 5%;
+    text-align: center; border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    position: relative; overflow: hidden;
+  }
+  #cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(244,166,30,0.07), transparent);
+    pointer-events: none;
+  }
+  #cta h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1rem; }
+  #cta p { color: var(--text); max-width: 480px; margin: 0 auto 2.5rem; font-size: 1rem; line-height: 1.7; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    background: rgba(244,166,30,0.15); border: 1px solid rgba(244,166,30,0.25);
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .contact-item-title { font-weight: 600; margin-bottom: 0.2rem; }
+  .contact-item-val { color: var(--text); font-size: 0.9rem; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-field {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 0.85rem 1.1rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--white);
+    outline: none; transition: border-color 0.2s; width: 100%;
+  }
+  .form-field::placeholder { color: var(--muted); }
+  .form-field:focus { border-color: var(--accent); }
+  textarea.form-field { resize: vertical; min-height: 120px; }
+  .form-submit {
+    background: var(--accent); color: var(--navy); border: none; border-radius: 50px;
+    padding: 1rem; font-family: 'DM Sans', sans-serif; font-weight: 700;
+    font-size: 1rem; cursor: pointer; transition: all 0.25s;
+  }
+  .form-submit:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(244,166,30,0.4); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #040e1c; padding: 2.5rem 5%;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-left { font-size: 0.85rem; color: var(--muted); }
+  .footer-left strong { color: var(--white); }
+  .footer-socials { display: flex; gap: 0.8rem; }
+  .social-btn {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 0.9rem; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .social-btn:hover { background: rgba(244,166,30,0.2); border-color: var(--accent); color: var(--accent); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-visual { display: none; }
+    .why-grid, .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .hero-stats { gap: 1.5rem; }
+    .section { padding: 4rem 5%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">α</div>
+    <div class="logo-text"><span>ALPHA</span> PTE IELTS</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Demo →</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⭐ #1 Coaching in Gaur City, Noida</div>
+    <h1>Score Higher.<br/><em>Study Abroad.</em><br/>Achieve More.</h1>
+    <p class="hero-sub">Expert coaching for IELTS, PTE, TOEFL, SAT & NAATI CCL in Hindi. Personalised batches, proven strategies, and real results — right here in Noida Extension.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Book Free Demo ↗</a>
+      <a href="#courses" class="btn-outline">Explore Courses</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">2000+</div>
+        <div class="stat-label">Students Trained</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Success Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8.5+</div>
+        <div class="stat-label">Avg Band Score</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="float-card">
+      <div class="float-card-label">Latest Result — IELTS</div>
+      <div class="float-card-value">Band <span>8.5</span></div>
+      <div class="score-bar"><div class="score-fill"></div></div>
+    </div>
+    <div class="float-card">
+      <div class="float-card-label">Latest Result — PTE</div>
+      <div class="float-card-value">Score <span>85</span>/90</div>
+      <div class="score-bar"><div class="score-fill" style="width:94%"></div></div>
+    </div>
+    <div class="float-card">
+      <div class="float-card-label">Online + Offline Batches</div>
+      <div class="float-card-value">Flexible <span>Timing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses" class="section">
+  <div class="courses-header">
+    <div class="section-label">Our Programs</div>
+    <h2>Every Exam, One Destination</h2>
+    <p class="section-desc">Structured courses with expert trainers, full study material, and unlimited mock tests.</p>
+  </div>
+  <div class="courses-grid">
+    <div class="course-card">
+      <div class="course-icon">🎯</div>
+      <div class="course-title">IELTS</div>
+      <div class="course-desc">Achieve your target band with focused training in Reading, Writing, Listening & Speaking. Academic & General modules.</div>
+      <span class="course-tag">Most Popular</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">💡</div>
+      <div class="course-title">PTE Academic</div>
+      <div class="course-desc">AI-scored exam mastery with strategic templates and intensive practice on Pearson's computerised format.</div>
+      <span class="course-tag">Fast Results</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">🌐</div>
+      <div class="course-title">TOEFL iBT</div>
+      <div class="course-desc">Comprehensive preparation for US & Canadian university admissions with full-length simulated tests.</div>
+      <span class="course-tag">University Bound</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">🎓</div>
+      <div class="course-title">SAT</div>
+      <div class="course-desc">Score 1500+ with our expert SAT programme covering Math, Reading, and Writing strategies.</div>
+      <span class="course-tag">Undergraduate</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">🇦🇺</div>
+      <div class="course-title">NAATI CCL Hindi</div>
+      <div class="course-desc">Earn extra points for Australian PR with our specialised NAATI Credentialed Community Language training in Hindi.</div>
+      <span class="course-tag">Australia PR</span>
+    </div>
+    <div class="course-card" style="border-color: rgba(244,166,30,0.3); background: linear-gradient(145deg, rgba(244,166,30,0.08), rgba(244,166,30,0.03));">
+      <div class="course-icon">📞</div>
+      <div class="course-title">Free Counselling</div>
+      <div class="course-desc">Not sure which exam is right for your visa or university goal? Talk to our experts — free of charge.</div>
+      <span class="course-tag" style="background:rgba(244,166,30,0.3);">Free</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="section">
+  <div class="why-grid">
+    <div>
+      <div class="section-label">Why ALPHA?</div>
+      <h2>We Don't Just Teach.<br/>We Transform.</h2>
+      <p class="section-desc" style="margin-bottom:2.5rem;">Our pedagogy goes beyond rote learning — we build real language skills alongside smart exam strategy.</p>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div>
+            <div class="why-item-title">Expert Native-Level Trainers</div>
+            <div class="why-item-desc">Our faculty are certified coaches with Band 9 / PTE 90 credentials and years of teaching experience.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div>
+            <div class="why-item-title">Small Batch Sizes</div>
+            <div class="why-item-desc">Personalised attention in batches of max 10 students. You are not just a roll number here.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div>
+            <div class="why-item-title">Unlimited Mock Tests</div>
+            <div class="why-item-desc">Simulated exam environment with detailed feedback reports to track and accelerate your progress.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div>
+            <div class="why-item-title">Hindi-Medium Support Available</div>
+            <div class="why-item-desc">Concepts explained in Hindi for students more comfortable in their native language — zero language barrier.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="why-visual-label">Student Score Outcomes</div>
+      <div class="why-visual-sub">Average improvement after ALPHA coaching</div>
+      <div class="band-row">
+        <span class="band-label">Speaking</span>
+        <div class="band-track"><div class="band-bar" style="width:92%; animation-delay:0.1s"></div></div>
+        <span class="band-score">8.0</span>
+      </div>
+      <div class="band-row">
+        <span class="band-label">Writing</span>
+        <div class="band-track"><div class="band-bar" style="width:82%; animation-delay:0.2s"></div></div>
+        <span class="band-score">7.5</span>
+      </div>
+      <div class="band-row">
+        <span class="band-label">Reading</span>
+        <div class="band-track"><div class="band-bar" style="width:96%; animation-delay:0.3s"></div></div>
+        <span class="band-score">8.5</span>
+      </div>
+      <div class="band-row">
+        <span class="band-label">Listening</span>
+        <div class="band-track"><div class="band-bar" style="width:94%; animation-delay:0.4s"></div></div>
+        <span class="band-score">8.5</span>
+      </div>
+      <div style="margin-top:1.5rem; padding-top:1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+          <span style="font-size:0.85rem; color:var(--muted)">Overall Band (avg)</span>
+          <span style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--accent)">8.0+</span>
+        </div>
+        <div style="font-size:0.78rem; color:var(--muted)">Based on student results 2023–24</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section">
+  <div class="test-header">
+    <div class="section-label">Student Stories</div>
+    <h2>Real Results, Real People</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"I got Band 8.0 overall on my very first attempt. The writing templates and speaking strategies they teach are absolutely gold. Couldn't have done it without this institute!"</p>
+      <div class="test-author">
+        <div class="test-avatar">P</div>
+        <div>
+          <div class="test-name">Priya Sharma</div>
+          <div class="test-info">IELTS 8.0 — Migrated to Canada 🇨🇦</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"Scored 82 on PTE in just 3 weeks of classes. The mock tests are incredibly accurate and the batch size is small so you get direct feedback every session."</p>
+      <div class="test-author">
+        <div class="test-avatar">R</div>
+        <div>
+          <div class="test-name">Rahul Verma</div>
+          <div class="test-info">PTE 82 — Australia PR ✅</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"The NAATI CCL Hindi course is the best in Noida. They cover all the scenarios, give you audio practice material, and the trainer's feedback is super detailed."</p>
+      <div class="test-author">
+        <div class="test-avatar">S</div>
+        <div>
+          <div class="test-name">Sunita Gupta</div>
+          <div class="test-info">NAATI CCL Passed — +5 PR Points 🇦🇺</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"Joined for IELTS after failing twice from another institute. ALPHA's approach is completely different — they identify your weakness and fix it specifically. Got 7.5 this time!"</p>
+      <div class="test-author">
+        <div class="test-avatar">A</div>
+        <div>
+          <div class="test-name">Amit Yadav</div>
+          <div class="test-info">IELTS 7.5 — UK Student Visa 🇬🇧</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"Online batch is just as effective as in-person. The study material is excellent and the teacher availability on WhatsApp for doubt-solving is a huge plus."</p>
+      <div class="test-author">
+        <div class="test-avatar">N</div>
+        <div>
+          <div class="test-name">Neha Singh</div>
+          <div class="test-info">PTE 79 — New Zealand Visa ✅</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"My son scored 1480 on SAT after just two months at ALPHA. The instructors are highly qualified and the practice papers are very close to the actual exam."</p>
+      <div class="test-author">
+        <div class="test-avatar">V</div>
+        <div>
+          <div class="test-name">Vandana Mishra</div>
+          <div class="test-info">Parent — SAT 1480, US University ✅</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-label">Get Started Today</div>
+  <h2>Your Dream Score Is<br/><em style="color:var(--accent); font-style:normal;">One Decision Away</em></h2>
+  <p>Join thousands of students who have already achieved their target scores and moved abroad. Book your free demo class today — no commitment required.</p>
+  <a href="#contact" class="btn-primary" style="display:inline-flex;">Book a Free Demo Class →</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div style="margin-bottom:3rem;">
+    <div class="section-label">Get In Touch</div>
+    <h2>Visit Us or Reach Out</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-item-title">Location</div>
+          <div class="contact-item-val">Near Dreamville Exotica Society, Gaur City 2, Greater Noida West Rd, Noida Extension, UP 201009</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-item-title">Call / WhatsApp</div>
+          <div class="contact-item-val">+91 XXXXX XXXXX<br/>Available 9 AM – 7 PM (Mon–Sat)</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-item-title">Batch Timings</div>
+          <div class="contact-item-val">Morning: 7 AM – 10 AM<br/>Evening: 5 PM – 8 PM<br/>Weekend batches available</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💻</div>
+        <div>
+          <div class="contact-item-title">Online Batches</div>
+          <div class="contact-item-val">Live Zoom / Google Meet classes with same-quality material and mock tests</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <input class="form-field" type="text" placeholder="Your Name" />
+          <input class="form-field" type="tel" placeholder="Phone Number" />
+        </div>
+        <select class="form-field" style="appearance:none;">
+          <option value="" disabled selected>Select Course</option>
+          <option>IELTS</option>
+          <option>PTE Academic</option>
+          <option>TOEFL</option>
+          <option>SAT</option>
+          <option>NAATI CCL Hindi</option>
+        </select>
+        <select class="form-field" style="appearance:none;">
+          <option value="" disabled selected>Preferred Mode</option>
+          <option>Offline – Gaur City Centre</option>
+          <option>Online – Live Classes</option>
+        </select>
+        <textarea class="form-field" placeholder="Any questions? (optional)"></textarea>
+        <button class="form-submit">Send Enquiry & Book Demo →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    © 2025 <strong>ALPHA PTE IELTS Education</strong> · Gaur City 2, Noida Extension · All rights reserved.
+  </div>
+  <div class="footer-socials">
+    <a class="social-btn" href="#" title="Facebook">f</a>
+    <a class="social-btn" href="#" title="Instagram">in</a>
+    <a class="social-btn" href="#" title="YouTube">▶</a>
+    <a class="social-btn" href="#" title="WhatsApp">💬</a>
+  </div>
+</footer>
+
+</body>
+</html>
